@@ -42,7 +42,6 @@ Untuk menjalankan API ini di komputer Anda, ikuti langkah-langkah berikut.
 1.  **Clone Repository**
 
     ```bash
-    # Ganti dengan URL repository Anda
     git clone https://github.com/SahrulRamadhanHardiansyah/novel-api
     ```
 
