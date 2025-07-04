@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novel API Documentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Novel API</h1>
+        <p class="subtitle">{{ data.message }}</p>
+        <p>Author: <strong>{{ data.author }}</strong></p>
+      </header>
+
+      <section>
+        <h2>Endpoints</h2>
+        <div class="endpoints-grid">
+          {% for path, description in data.endpoints.items() %}
+          <div class="endpoint-card">
+            <p class="path"><code>{{ path }}</code></p>
+            <p class="description">{{ description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section>
+        <h2>Example Usage</h2>
+        <div class="endpoints-grid">
+          {% for key, example_path in data.example_usage.items() %}
+          <div class="endpoint-card">
+            <p class="description">{{ key.replace('_', ' ')|title }}</p>
+            <p class="path">
+              <code><a href="{{ example_path }}" target="_blank">{{ example_path }}</a></code>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <footer>
+        <p>API dibuat dengan Flask & Beautiful Soup.</p>
+      </footer>
+    </div>
+  </body>
+</html>
